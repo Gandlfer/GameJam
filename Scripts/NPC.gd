@@ -37,7 +37,7 @@ func _on_area_2d_body_entered(body):
 				var rand = RandomNumberGenerator.new().randi_range(0,9)
 				if rand==0: # If win 10% rng
 					#$YesChatBox.visible = true
-					$YesChatBox/NoVote.visible = true
+					$YesChatBox/YesVote.visible = true
 					$YesChatBox/YesVoteSound.play()
 					Global.score+=1
 				else:
