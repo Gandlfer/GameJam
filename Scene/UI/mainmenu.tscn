@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://jhmpw0u8c8t3"]
+
+[ext_resource type="Texture2D" uid="uid://dle3qrt4grtoj" path="res://Image Assets/Background/Brown.png" id="1_bryst"]
+[ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="2_i3o8g"]
+[ext_resource type="FontFile" uid="uid://c46wv6plfdfbm" path="res://Fonts/Abaddon Bold.ttf" id="3_hrsv7"]
+[ext_resource type="FontFile" uid="uid://jif8coy7kxes" path="res://Fonts/Abaddon Light.ttf" id="4_c4ags"]
+[ext_resource type="AudioStream" uid="uid://jqnccke2o26q" path="res://SoundFX/interface-124464.mp3" id="5_f7sa2"]
+
+[node name="CanvasLayer" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bryst")
+stretch_mode = 1
+script = ExtResource("2_i3o8g")
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -305.0
+offset_right = 649.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 15.0
+offset_right = 1022.0
+offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("3_hrsv7")
+theme_override_font_sizes/font_size = 100
+text = "Approval Votes 
+In Darkness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -514.0
+offset_top = -79.0
+offset_right = 504.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="Label" parent="Player"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 1285.0
+offset_bottom = 245.0
+theme_override_fonts/font = ExtResource("4_c4ags")
+theme_override_font_sizes/font_size = 20
+text = "You are an animal staying in the village. 
+Because you stole the leader's family heirloom, the leader is furious and wants you to be exiled from the village. 
+The only way to avoid that is to get 6 out of the 11 villagers' votes for you to stay within 3 minutes. 
+Lucky for you, you are close to all of the villagers that are the same species as you and there are exactly 6 of them, so they will always vote yes. 
+The remainding 5 are not the same species as you, but each of them have a 10% chance of voting yes for you to stay. 
+The leader wants to make it difficult for you, so he cooked up a plan and turned off all light sources in the village. 
+Navigate your way in the darkness to find these villagers and go close to them to receive or deny their vote. 
+If you did not get at least 6 votes, you will be exiled!"
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 1008.0
+offset_bottom = 222.0
+theme_override_fonts/normal_font = ExtResource("4_c4ags")
+theme_override_font_sizes/normal_font_size = 20
+text = "You are an animal staying in the village. Because you stole the leader's family heirloom, the leader is furious and wants you to be exiled from the village. The only way to avoid that is to get 6 out of the 11 villagers' votes for you to stay within 3 minutes. Lucky for you, you are close to all of the villagers that are the same species as you and there are exactly 6 of them, so they will always vote yes. The remainding 5 are not the same species as you, but each of them have a 10% chance of voting yes for you to stay. The leader wants to make it difficult for you, so he cooked up a plan and turned off all light sources in the village. Navigate your way in the darkness to find these villagers and go close to them to receive or deny their vote. If you did not get at least 6 votes, you will be exiled!"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = 76.0
+offset_right = 500.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 102.0
+offset_right = 642.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("4_c4ags")
+theme_override_font_sizes/font_size = 20
+text = "Start"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_f7sa2")
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
